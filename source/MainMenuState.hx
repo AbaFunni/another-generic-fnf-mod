@@ -102,8 +102,8 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();
 		}
 
-			FlxTween.tween(menuItem, {y: menuItem.y + 30}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
-			FlxTween.tween(menuItem, {y: menuItem.y + 30}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
+			FlxTween.tween(menuItems, {y: menuItem.y + 30}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
+			FlxTween.tween(menuItems, {y: menuItem.y + 30}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
