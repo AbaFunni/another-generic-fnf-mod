@@ -24,7 +24,6 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.6.2'; //This is also used for Discord RPC
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -96,12 +95,14 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
 			menuItem.x = 100;
-			menuItem.angle = 7;
 			menuItems.add(menuItem);
 			menuItem.scrollFactor.set();
 			menuItem.antialiasing = true;
 			menuItem.updateHitbox();
 		}
+
+			FlxTween.tween(menuItem, {y: menuItem.y + 30}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
+			FlxTween.tween(menuItem, {y: menuItem.y + 30}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 

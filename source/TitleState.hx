@@ -244,7 +244,7 @@ class TitleState extends MusicBeatState
 	{
 		if (!initialized)
 		{
-			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
+			var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
 			diamond.persist = true;
 			diamond.destroyOnNoUse = false;
 
@@ -409,6 +409,14 @@ class TitleState extends MusicBeatState
 		ngSpr.updateHitbox();
 		ngSpr.screenCenter(X);
 		ngSpr.antialiasing = ClientPrefs.globalAntialiasing;
+
+		hi = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('hi'));
+		add(hi);
+		hi.visible = false;
+		hi.setGraphicSize(Std.int(hi.width * 0.8));
+		hi.updateHitbox();
+		hi.screenCenter(X);
+		hi.antialiasing = true;
 
 		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
@@ -715,14 +723,15 @@ class TitleState extends MusicBeatState
 				// credTextShit.visible = false;
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
+					addMoreText('Another');
 				case 14:
-					addMoreText('Friday');
+					addMoreText('Generic');
 				// credTextShit.visible = true;
 				case 15:
-					addMoreText('Night');
+					addMoreText('FNF');
 				// credTextShit.text += '\nNight';
 				case 16:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+					addMoreText('Mod'); // credTextShit.text += '\nFunkin';
 
 				case 17:
 					skipIntro();
