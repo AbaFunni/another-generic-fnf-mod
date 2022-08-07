@@ -102,9 +102,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.updateHitbox();
 		}
 
-			FlxTween.tween(menuItems, {y: menuItem.y + 30}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
-			FlxTween.tween(menuItems, {y: menuItem.y + 30}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
-
 		FlxG.camera.follow(camFollowPos, null, 1);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
