@@ -64,6 +64,7 @@ class TitleState extends MusicBeatState
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
+	var hi:FlxSprite;
 	
 	var titleTextColors:Array<FlxColor> = [0xFF33FFFF, 0xFF3333CC];
 	var titleTextAlphas:Array<Float> = [1, .64];
@@ -522,9 +523,7 @@ class TitleState extends MusicBeatState
 
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
-					if (mustUpdate) {
-						MusicBeatState.switchState(new OutdatedState());
-					} else {
+					{
 						MusicBeatState.switchState(new MainMenuState());
 					}
 					closedState = true;
@@ -766,6 +765,7 @@ class TitleState extends MusicBeatState
 
 					default: //Go back to normal ugly ass boring GF
 						remove(ngSpr);
+						remove(hi);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 2);
 						skippedIntro = true;
@@ -782,6 +782,7 @@ class TitleState extends MusicBeatState
 					new FlxTimer().start(3.2, function(tmr:FlxTimer)
 					{
 						remove(ngSpr);
+						remove(hi);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 0.6);
 						transitioning = false;
@@ -790,6 +791,7 @@ class TitleState extends MusicBeatState
 				else
 				{
 					remove(ngSpr);
+					remove(hi);
 					remove(credGroup);
 					FlxG.camera.flash(FlxColor.WHITE, 3);
 					sound.onComplete = function() {
@@ -803,6 +805,7 @@ class TitleState extends MusicBeatState
 			else //Default! Edit this one!!
 			{
 				remove(ngSpr);
+				remove(hi);
 				remove(credGroup);
 				FlxG.camera.flash(FlxColor.WHITE, 4);
 
