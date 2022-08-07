@@ -80,7 +80,7 @@ class MainMenuState extends MusicBeatState
 		menushit.scrollFactor.set();
 		menushit.antialiasing = true;
 		menushit.screenCenter();
-		menushit.y = 20;
+		menushit.y = -20;
 		FlxTween.tween(menushit, {y: menushit.y + 10}, 2, {ease: FlxEase.quadInOut, type: PINGPONG});
 		FlxTween.tween(menushit, {x: menushit.x + 10}, 2, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.15});
 		add(menushit);
@@ -114,17 +114,14 @@ class MainMenuState extends MusicBeatState
 						menuItem.y = 100;
 						menuItem.x = 100;
 					case 1: 
-						menuItem.y = 80;
-						menuItem.x = 140;
-					case 2:
-						menuItem.y = 60;
-						menuItem.x = 170;
-					case 3:
-						menuItem.x = 50;
 						menuItem.y = 200;
-					case 4:
-						menuItem.x = 20;
-						menuItem.y = 240;
+						menuItem.x = 200;
+					case 2:
+						menuItem.y = 300;
+						menuItem.x = 300;
+					case 3:
+						menuItem.x = 400;
+						menuItem.y = 400;
 				}
 		}
 
