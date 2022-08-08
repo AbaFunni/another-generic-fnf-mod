@@ -792,7 +792,7 @@ class TitleState extends MusicBeatState
 						sound = FlxG.sound.play(Paths.sound('JingleBB'));
 
 					default: //Go back to normal ugly ass boring GF
-						remove(ngSpr);						remove(blackscreen);
+						remove(ngSpr);
 						remove(hi);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 2);
