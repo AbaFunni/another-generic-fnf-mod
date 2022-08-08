@@ -287,6 +287,14 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
+		var overlay:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('titleOverlay'));
+		overlay.scrollFactor.set();
+		overlay.setGraphicSize(Std.int(overlay.width * 1.175));
+		overlay.updateHitbox();
+		overlay.screenCenter();
+		overlay.antialiasing = ClientPrefs.globalAntialiasing;
+		add(overlay);
+
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 
@@ -394,7 +402,8 @@ class TitleState extends MusicBeatState
 		textGroup = new FlxGroup();
 
 		blackScreen = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		credGroup.add(blackScreen);
+		credGroup.add(bg);
+		credGroup.add(overlay);
 
 		credTextShit = new Alphabet(0, 0, "", true);
 		credTextShit.screenCenter();

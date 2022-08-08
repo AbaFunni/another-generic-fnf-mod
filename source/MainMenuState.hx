@@ -19,6 +19,7 @@ import flixel.util.FlxColor;
 import lime.app.Application;
 import Achievements;
 import flixel.input.keyboard.FlxKey;
+import flixel.addons.display.FlxTiledSprite;
 
 using StringTools;
 
@@ -30,7 +31,13 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
-	
+
+	var menuoutline1:FlxTiledSprite;
+
+	var menuoutline2:FlxTiledSprite;
+
+	var checkerboard:FlxTiledSprite;
+
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
@@ -84,6 +91,24 @@ class MainMenuState extends MusicBeatState
 		FlxTween.tween(menushit, {y: menushit.y + 10}, 2, {ease: FlxEase.quadInOut, type: PINGPONG});
 		FlxTween.tween(menushit, {x: menushit.x + 10}, 2, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.15});
 		add(menushit);
+
+		checkerboard = new FlxTiledSprite(Paths.image('checkerboard'), FlxG.width * 3, FlxG.width * 3, true, true);
+		checkerboard.scrollFactor.set(0, 0);
+		checkerboard.x = -100;
+		checkerboard.y = -100;
+		checkerboard.antialiasing = false;
+		add(checkerboard);
+
+		menuoutline1 = new FlxTiledSprite(Paths.image('menuoutline1'), FlxG.width * 3, FlxG.width * 3, true, false);
+		menuoutline1.scrollFactor.set(0, 0);
+		menuoutline1.antialiasing = false;
+		add(menuoutline1);
+
+		menuoutline2 = new FlxTiledSprite(Paths.image('menuoutline2'), FlxG.width * 3, FlxG.width * 3, true, false);
+		menuoutline2.scrollFactor.set(0, 0);
+		menuoutline2.y = FlxG.height - 130;
+		menuoutline2.antialiasing = false;
+		add(menuoutline2);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
