@@ -296,7 +296,7 @@ class TitleState extends MusicBeatState
 		PISSED.screenCenter();
 		PISSED.scale.x = 0.8;
 		PISSED.scale.y = 0.8;
-		menuoutline2.scrollFactor.set(0.95, 0.95);
+		PISSED.scrollFactor.set(0.95, 0.95);
 		PISSED.antialiasing = true;
 		add(PISSED);
 
