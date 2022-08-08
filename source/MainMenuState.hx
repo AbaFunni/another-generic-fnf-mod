@@ -121,8 +121,8 @@ class MainMenuState extends MusicBeatState
 		for (i in 0...optionShit.length)
 		{
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140));
-			menuItem.scale.x = 0.9;
-			menuItem.scale.y = 0.9;
+			menuItem.scale.x = 0.8;
+			menuItem.scale.y = 0.8;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
@@ -139,14 +139,17 @@ class MainMenuState extends MusicBeatState
 						menuItem.y = 100;
 						menuItem.x = 100;
 					case 1: 
-						menuItem.y = 200;
-						menuItem.x = 200;
+						menuItem.y = 150;
+						menuItem.x = 100;
 					case 2:
-						menuItem.y = 300;
-						menuItem.x = 300;
+						menuItem.y = 200;
+						menuItem.x = 100;
 					case 3:
-						menuItem.x = 400;
-						menuItem.y = 400;
+						menuItem.x = 250;
+						menuItem.y = 100;
+					case 4:
+						menuItem.x = 300;
+						menuItem.y = 100;
 				}
 		}
 

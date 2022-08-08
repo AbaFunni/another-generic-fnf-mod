@@ -292,6 +292,13 @@ class TitleState extends MusicBeatState
 		overlay.antialiasing = true;
 		add(overlay);
 
+		var PISSED:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('PISSED'));
+		PISSED.screenCenter();
+		PISSED.scale.x = 0.9;
+		PISSED.scale.y = 0.9;
+		PISSED.antialiasing = true;
+		add(PISSED);
+
 		// logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		// logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 
@@ -302,9 +309,11 @@ class TitleState extends MusicBeatState
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
-		logoBl:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
+		logoBl = new FlxSprite().loadGraphic(Paths.image('logo'));
 		logoBl.screenCenter();
-		logoBl.angle -= 5;
+		logoBl.angle -= 3;
+		logoBl.scale.x = 0.9;
+		logoBl.scale.y = 0.9;
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
 		add(logoBl);
 
@@ -347,6 +356,8 @@ class TitleState extends MusicBeatState
 				gfDance.animation.addByIndices('danceRight', 'gfDance', [1, 2, 3, 4, 5, 6, 7, 8, 9], "", 24, false);
 		}
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
+		gfDance.scale.x = 0.8;
+		gfDance.scale.y = 0.8;
 
 		add(gfDance);
 		gfDance.shader = swagShader.shader;
