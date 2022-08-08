@@ -759,10 +759,8 @@ class TitleState extends MusicBeatState
 				// credTextShit.text += '\nNight';
 				case 16:
 					addMoreText('Mod'); // credTextShit.text += '\nFunkin';
-					blackscreen.visible = true;
 					hi.visible = true;
 				case 17:
-					blackscreen.visible = false;
 					hi.visible = false;
 					skipIntro();
 			}
@@ -794,8 +792,7 @@ class TitleState extends MusicBeatState
 						sound = FlxG.sound.play(Paths.sound('JingleBB'));
 
 					default: //Go back to normal ugly ass boring GF
-						remove(ngSpr);
-						remove(blackscreen);
+						remove(ngSpr);						remove(blackscreen);
 						remove(hi);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 2);
@@ -813,7 +810,6 @@ class TitleState extends MusicBeatState
 					new FlxTimer().start(3.2, function(tmr:FlxTimer)
 					{
 						remove(ngSpr);
-						remove(blackscreen);
 						remove(hi);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 0.6);
@@ -823,7 +819,6 @@ class TitleState extends MusicBeatState
 				else
 				{
 					remove(ngSpr);
-					remove(blackscreen);
 					remove(hi);
 					remove(credGroup);
 					FlxG.camera.flash(FlxColor.WHITE, 3);
@@ -838,7 +833,6 @@ class TitleState extends MusicBeatState
 			else //Default! Edit this one!!
 			{
 				remove(ngSpr);
-				remove(blackscreen);
 				remove(hi);
 				remove(credGroup);
 				FlxG.camera.flash(FlxColor.WHITE, 4);
