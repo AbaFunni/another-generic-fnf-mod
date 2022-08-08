@@ -41,6 +41,7 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
+		'credits',
 		#if !switch 'donate', #end
 		'options'
 	];
@@ -95,12 +96,6 @@ class MainMenuState extends MusicBeatState
 		menuoutline1.antialiasing = false;
 		add(menuoutline1);
 
-		menuoutline2 = new FlxTiledSprite(Paths.image('menuoutline2'), FlxG.width * 3, FlxG.width * 3, true, false);
-		menuoutline2.scrollFactor.set(0, 0);
-		menuoutline2.y = FlxG.height - 130;
-		menuoutline2.antialiasing = false;
-		add(menuoutline2);
-
 		var menushit:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('thisguy'));
 		menushit.scrollFactor.set();
 		menushit.antialiasing = true;
@@ -108,6 +103,12 @@ class MainMenuState extends MusicBeatState
 		FlxTween.tween(menushit, {y: menushit.y + 10}, 2, {ease: FlxEase.quadInOut, type: PINGPONG});
 		FlxTween.tween(menushit, {x: menushit.x + 10}, 2, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.15});
 		add(menushit);
+
+		menuoutline2 = new FlxTiledSprite(Paths.image('menuoutline2'), FlxG.width * 3, FlxG.width * 3, true, false);
+		menuoutline2.scrollFactor.set(0, 0);
+		menuoutline2.y = FlxG.height - 130;
+		menuoutline2.antialiasing = false;
+		add(menuoutline2);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);

@@ -292,15 +292,24 @@ class TitleState extends MusicBeatState
 		overlay.antialiasing = true;
 		add(overlay);
 
-		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
-		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+		// logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
+		// logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 
-		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
-		logoBl.animation.play('bump');
-		logoBl.updateHitbox();
+		// logoBl.antialiasing = ClientPrefs.globalAntialiasing;
+		// logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
+		// logoBl.animation.play('bump');
+		// logoBl.updateHitbox();
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
+
+		logoBl:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
+		logoBl.screenCenter();
+		logoBl.angle -= 5;
+		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
+		add(logoBl);
+
+		FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
+		FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
 
 		swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
@@ -386,9 +395,9 @@ class TitleState extends MusicBeatState
 		// titleText.screenCenter(X);
 		add(titleText);
 
-		var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
-		logo.screenCenter();
-		logo.antialiasing = ClientPrefs.globalAntialiasing;
+		// var logo:FlxSprite = new FlxSprite().loadGraphic(Paths.image('logo'));
+		// logo.screenCenter();
+		// logo.antialiasing = ClientPrefs.globalAntialiasing;
 		// add(logo);
 
 		// FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
@@ -739,8 +748,10 @@ class TitleState extends MusicBeatState
 				// credTextShit.text += '\nNight';
 				case 16:
 					addMoreText('Mod'); // credTextShit.text += '\nFunkin';
+					blackscreen.visible = true;
 					hi.visible = true;
 				case 17:
+					blackscreen.visible = false;
 					hi.visible = false;
 					skipIntro();
 			}
@@ -773,6 +784,7 @@ class TitleState extends MusicBeatState
 
 					default: //Go back to normal ugly ass boring GF
 						remove(ngSpr);
+						remove(blackscreen);
 						remove(hi);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 2);
@@ -790,6 +802,7 @@ class TitleState extends MusicBeatState
 					new FlxTimer().start(3.2, function(tmr:FlxTimer)
 					{
 						remove(ngSpr);
+						remove(blackscreen);
 						remove(hi);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 0.6);
@@ -799,6 +812,7 @@ class TitleState extends MusicBeatState
 				else
 				{
 					remove(ngSpr);
+					remove(blackscreen);
 					remove(hi);
 					remove(credGroup);
 					FlxG.camera.flash(FlxColor.WHITE, 3);
@@ -813,6 +827,7 @@ class TitleState extends MusicBeatState
 			else //Default! Edit this one!!
 			{
 				remove(ngSpr);
+				remove(blackscreen);
 				remove(hi);
 				remove(credGroup);
 				FlxG.camera.flash(FlxColor.WHITE, 4);
