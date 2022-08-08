@@ -245,17 +245,17 @@ class TitleState extends MusicBeatState
 	{
 		if (!initialized)
 		{
-			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
+			var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
 			diamond.persist = true;
 			diamond.destroyOnNoUse = false;
 
 			FlxTransitionableState.defaultTransIn = new TransitionData(FADE, FlxColor.BLACK, 1, new FlxPoint(0, -1), {asset: diamond, width: 32, height: 32},
-				new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
+				new FlxRect(-200, -200, FlxG.width * 1.4, FlxG.height * 1.4));
 			FlxTransitionableState.defaultTransOut = new TransitionData(FADE, FlxColor.BLACK, 0.7, new FlxPoint(0, 1),
-				{asset: diamond, width: 32, height: 32}, new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
+				{asset: diamond, width: 32, height: 32}, new FlxRect(-200, -200, FlxG.width * 1.4, FlxG.height * 1.4));
 
 			transIn = FlxTransitionableState.defaultTransIn;
-			transOut = FlxTransitionableState.defaultTransOut;*/
+			transOut = FlxTransitionableState.defaultTransOut;
 
 			// HAD TO MODIFY SOME BACKEND SHIT
 			// IF THIS PR IS HERE IF ITS ACCEPTED UR GOOD TO GO
@@ -288,11 +288,8 @@ class TitleState extends MusicBeatState
 		add(bg);
 
 		var overlay:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('titleOverlay'));
-		overlay.scrollFactor.set();
-		overlay.setGraphicSize(Std.int(overlay.width * 1.175));
-		overlay.updateHitbox();
 		overlay.screenCenter();
-		overlay.antialiasing = ClientPrefs.globalAntialiasing;
+		overlay.antialiasing = true;
 		add(overlay);
 
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
@@ -337,8 +334,8 @@ class TitleState extends MusicBeatState
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
 				gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
-				gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-				gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				gfDance.animation.addByIndices('danceLeft', 'gfDance', [1, 2, 3, 4, 5, 6, 7, 8, 9], "", 24, false);
+				gfDance.animation.addByIndices('danceRight', 'gfDance', [1, 2, 3, 4, 5, 6, 7, 8, 9], "", 24, false);
 		}
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 
@@ -662,6 +659,8 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
+		FlxTween.tween(FlxG.camera, {zoom: 1.05}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
+
 		if(logoBl != null)
 			logoBl.animation.play('bump', true);
 
@@ -741,8 +740,10 @@ class TitleState extends MusicBeatState
 				case 16:
 					addMoreText('Mod'); // credTextShit.text += '\nFunkin';
 					hi.visible = true;
+					black.visible = true;
 				case 17:
 					hi.visible = false;
+					black.visible = false;
 					skipIntro();
 			}
 		}

@@ -83,15 +83,6 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		var menushit:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('thisguy'));
-		menushit.scrollFactor.set();
-		menushit.antialiasing = true;
-		menushit.screenCenter();
-		menushit.y = -20;
-		FlxTween.tween(menushit, {y: menushit.y + 10}, 2, {ease: FlxEase.quadInOut, type: PINGPONG});
-		FlxTween.tween(menushit, {x: menushit.x + 10}, 2, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.15});
-		add(menushit);
-
 		checkerboard = new FlxTiledSprite(Paths.image('checkerboard'), FlxG.width * 3, FlxG.width * 3, true, true);
 		checkerboard.scrollFactor.set(0, 0);
 		checkerboard.x = -100;
@@ -109,6 +100,14 @@ class MainMenuState extends MusicBeatState
 		menuoutline2.y = FlxG.height - 130;
 		menuoutline2.antialiasing = false;
 		add(menuoutline2);
+
+		var menushit:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('thisguy'));
+		menushit.scrollFactor.set();
+		menushit.antialiasing = true;
+		menushit.screenCenter();
+		FlxTween.tween(menushit, {y: menushit.y + 10}, 2, {ease: FlxEase.quadInOut, type: PINGPONG});
+		FlxTween.tween(menushit, {x: menushit.x + 10}, 2, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.15});
+		add(menushit);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
@@ -203,6 +202,11 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 			if(FreeplayState.vocals != null) FreeplayState.vocals.volume += 0.5 * elapsed;
 		}
+
+		menuoutline1.scrollX -= 1 * 60 * elapsed;
+		menuoutline2.scrollX += 1 * 60 * elapsed;
+		checkerboard.scrollX += 1 * 25 * elapsed;
+		checkerboard.scrollY -= 1 * 25 * elapsed;
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 7.5, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
