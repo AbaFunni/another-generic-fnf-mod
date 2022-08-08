@@ -294,8 +294,9 @@ class TitleState extends MusicBeatState
 
 		var PISSED:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('PISSED'));
 		PISSED.screenCenter();
-		PISSED.scale.x = 0.9;
-		PISSED.scale.y = 0.9;
+		PISSED.scale.x = 0.8;
+		PISSED.scale.y = 0.8;
+		menuoutline2.scrollFactor.set(0.95, 0.95);
 		PISSED.antialiasing = true;
 		add(PISSED);
 
@@ -311,9 +312,8 @@ class TitleState extends MusicBeatState
 
 		logoBl = new FlxSprite().loadGraphic(Paths.image('logo'));
 		logoBl.screenCenter();
-		logoBl.angle -= 3;
-		logoBl.scale.x = 0.9;
-		logoBl.scale.y = 0.9;
+		logoBl.scale.x = 0.6;
+		logoBl.scale.y = 0.6;
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
 		add(logoBl);
 
