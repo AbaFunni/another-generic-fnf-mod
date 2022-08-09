@@ -136,26 +136,26 @@ class MainMenuState extends MusicBeatState
 			switch (i)
 				{
 					case 0: 
-						menuItem.y = 100;
+						menuItem.y = 130;
 						menuItem.x = 100;
 					case 1: 
-						menuItem.y = 200;
+						menuItem.y = 230;
 						menuItem.x = 100;
 					case 2:
-						menuItem.y = 300;
+						menuItem.y = 330;
 						menuItem.x = 100;
 					case 3:
-						menuItem.y = 400;
+						menuItem.y = 430;
 						menuItem.x = 100;
 					case 4:
-						menuItem.y = 500;
+						menuItem.y = 530;
 						menuItem.x = 100;
 				}
 		}
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Vs Stiv", 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Vs Stiv FULL WEEK?!?!?", 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);

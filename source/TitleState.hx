@@ -294,6 +294,7 @@ class TitleState extends MusicBeatState
 
 		var PISSED:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('PISSED'));
 		PISSED.screenCenter();
+		PISSED.y = 30;
 		PISSED.antialiasing = true;
 		add(PISSED);
 
