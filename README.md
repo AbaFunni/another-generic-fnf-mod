@@ -3,6 +3,8 @@ Seems legit.
 
 ## Credits:
 Aba - did shit
+Cacutz - did shit
+Kracer - did shit
 Psych Engine - psych engine
 M.A Jigtitties - mobil potr
 Psych Engine serv - script
